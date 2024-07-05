@@ -1,0 +1,17 @@
+.dashboard-style{
+    width: 1296px;
+    margin-left: 240px;
+    /* padding: 0px 24px; */
+    padding-top: 20px;
+}
+.sales-div{
+    width: 612px;
+    background-color: black;
+    height: 100vh;
+}
+.sales-chart{
+    width: 612px;
+    margin-left: 24px;
+    background-color: red;
+    height: 100vh;
+}

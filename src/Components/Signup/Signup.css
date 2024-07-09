@@ -1,0 +1,120 @@
+.signup-main{
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    position: absolute;
+    top: 0%;
+}
+
+.signup-form{
+    width: 896px;
+    height: 100%;
+}
+
+.template-signup{
+    width: 640px;
+    height: 100%;
+    background-image: url('../../assets/1-DTtYAYR3.jpg');
+    justify-content: center;
+    align-items: center;
+}
+.clouser-div-style{
+    width: 448px !important;
+    height:600px;
+    backdrop-filter: blur(1.875rem);
+    background-color: #0003;
+    padding: 32px;
+}
+.carousel-item{
+    /* background-color: blue; */
+    height: 514px;
+    padding: 48px;
+}
+.carousel-inner{
+    height: 514px;
+}
+.carousel-item img{
+    width: 240px;
+    height: 240px;
+    margin: 0px 32px;
+}
+.signup-h{
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 35px;
+    text-align: center;
+}
+
+.signup-p{
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+}
+.form-div{
+    width: 606px;
+    padding: 48px;
+}
+.logo-signup{
+    color: #333335;
+    font-size: 20px;
+    margin-bottom: 8px !important
+    ;
+    margin-top: 8px;
+    font-weight: 600;
+}
+
+.welcome-s{
+    color: #8c9097;
+    font-size: 13.008px;
+    margin-bottom: 16px !important;
+}
+
+.google-btn{
+    padding: 10.4px 16px;
+    background-color: #F3F6F8;
+    border: none;
+    border-radius: 10px;
+    font-size: 15.2px;
+}
+.google-logo{
+    margin-right: 10px;
+}
+.form-layout{
+    margin-top: 25px;
+}
+.text-default{
+    font-size: 12.8px;
+    color: #333335;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+.form-control{
+    font-size: .875rem;
+    color: #8c9097;
+    padding: 8px 13.6px !important;
+}
+.form-check-detail{
+    color: #8c9097;
+    font-size: 13.008px;
+}
+.form-check{
+    padding-left: 0px;
+}
+.signup-btn{
+    background-color: #845ADF !important;
+    font-size: 15.2px;
+    font-weight: 600;
+    width: 100%;
+    padding: 10.4px 16px !important;
+}
+.sign-in-page p{
+    font-size: 12px;
+    color: #8c9097;
+    text-align: center;
+    margin-top: 16px;
+}
+.sign-in-page p a {
+    color: #845ADF !important;
+    text-decoration: none;
+}

@@ -1,6 +1,6 @@
 .main-navbar{
     width: 240px;
-    height: 100vh;
+    height: 776px;
     position: absolute;
     top: 0%;
     z-index: -999;
@@ -40,9 +40,7 @@
     letter-spacing: .065rem;
     display: inline-block;
 }
-p{
-    display: inline;
-}
+
 
 .navbar-inner-div ul li p {
     font-size: 13.6px;

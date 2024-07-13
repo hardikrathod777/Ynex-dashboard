@@ -21,6 +21,23 @@ import ao_u3_pro3 from '../../assets/3-DKEZOTIS.png'
 import ao_u4_pro4 from '../../assets/4-D8JE7EAo.png'
 import ao_u5_pro5 from '../../assets/5-D0LVVgbN.png'
 
+import ts_table_pro1 from '../../assets/36-BX8tRvQQ.png';
+import ts_table_pro2 from '../../assets/38-DwbWSSEC.png';
+import ts_table_pro3 from '../../assets/39-gfAscU65.png';
+import ts_table_pro4 from '../../assets/40-QvE9yw2E.png';
+import f_flag from '../../assets/download (5).jpeg';
+import f_flag1 from '../../assets/download (6).jpeg';
+import f_flag2 from '../../assets/download (7).jpeg';
+import f_flag3 from '../../assets/uae_flag-NeVhMWMv.jpg';
+import f_flag4 from '../../assets/download (8).jpeg';
+
+import { MdTrendingUp } from "react-icons/md";
+import { IoMdTrendingDown } from "react-icons/io";
+import t_cust_1 from '../../assets/4-CyNZzJ-C.jpg'
+import t_cust_2 from '../../assets/download (9).jpeg'
+import t_cust_3 from '../../assets/5-9x1kob0t.jpg'
+import t_cust_4 from '../../assets/download (10).jpeg'
+
 import Charts from './Chart' 
 function Dashboard() {
         return (
@@ -375,9 +392,259 @@ function Dashboard() {
                                 <Charts/>
                             </div>
                         </div>
+
+
+                        <div className='top-sale-pro'>
+                            <div className='top-sale-title'>
+                                <p>Top Selling Products</p>
+                            </div>
+                            <div className='t-s-table'>
+                                <div className='top-sale-tbt d-flex'>
+                                    <div className='top-s-sno'>
+                                        <p>S.no</p>
+                                    </div>
+                                    <div className='top-s-pro-n'>
+                                        <p>Product Name</p>
+                                    </div>
+                                    <div className='top-s-pro-cat'>
+                                        <p>Category</p>
+                                    </div>
+                                    <div className='top-s-pro-price'>
+                                        <p>Total Sales</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='t-s-table-pro'>
+                                <div className='top-sale-pro-table d-flex'>
+                                    <div style={{padding:'12px'}}>
+                                        <div className='ts_table_pro1-box'>
+                                            <img src={ts_table_pro1}/>
+                                        </div>
+                                    </div>
+                                    <div className='ts-table-pro1'>
+                                        <p>Ethnic School bag for children (24L)</p>
+                                    </div>
+                                    <div className='ts-table-pro-2'>
+                                        <p>	Bags</p>
+                                    </div>
+                                    <div className='ts-table-pro-3'>
+                                        <p>5,093</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='t-s-table-pro'>
+                                <div className='top-sale-pro-table d-flex'>
+                                    <div style={{padding:'12px'}}>
+                                        <div className='ts_table_pro1-box'>
+                                            <img src={ts_table_pro2}/>
+                                        </div>
+                                    </div>
+                                    <div className='ts-table-pro1'>
+                                        <p>Ethnic School bag for children (24L)</p>
+                                    </div>
+                                    <div className='ts-table-pro-2'>
+                                        <p>	Bags</p>
+                                    </div>
+                                    <div className='ts-table-pro-3'>
+                                        <p>5,093</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='t-s-table-pro'>
+                                <div className='top-sale-pro-table d-flex'>
+                                    <div style={{padding:'12px'}}>
+                                        <div className='ts_table_pro1-box'>
+                                            <img src={ts_table_pro3}/>
+                                        </div>
+                                    </div>
+                                    <div className='ts-table-pro1'>
+                                        <p>Ethnic School bag for children (24L)</p>
+                                    </div>
+                                    <div className='ts-table-pro-2'>
+                                        <p>	Bags</p>
+                                    </div>
+                                    <div className='ts-table-pro-3'>
+                                        <p>5,093</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='t-s-table-pro'>
+                                <div className='top-sale-pro-table d-flex'>
+                                    <div style={{padding:'12px'}}>
+                                        <div className='ts_table_pro1-box'>
+                                            <img src={ts_table_pro4}/>
+                                        </div>
+                                    </div>
+                                    <div className='ts-table-pro1'>
+                                        <p>Ethnic School bag for children (24L)</p>
+                                    </div>
+                                    <div className='ts-table-pro-2'>
+                                        <p>	Bags</p>
+                                    </div>
+                                    <div className='ts-table-pro-3'>
+                                        <p>5,093</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div className='d-flex'>
+                            {/* first */}
+                            <div className='top-cont-sale'>
+                                <div className='top-cont-title'>
+                                    <p>Top Countries By Sales</p>
+                                </div>
+                                <div style={{padding:'20px'}}>
+                                    <div className='tc-sales'>
+                                        <p>38,877</p> <span>Since last week</span>
+                                    </div>
+                                    <div style={{paddingTop:'16px'}}>
+                                        <div className='cont-sale d-flex justify-content-between'>
+                                            <div>
+                                                <img src={f_flag}/>
+                                                <p>France</p>
+                                            </div>
+                                            <div>
+                                                <MdTrendingUp className='sale-up'/>
+                                            </div>
+                                            <div>
+                                                <p>5977</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div className='cont-sale d-flex justify-content-between'>
+                                            <div>
+                                                <img src={f_flag1}/>
+                                                <p>France</p>
+                                            </div>
+                                            <div>
+                                                <IoMdTrendingDown className='sale-down'/>
+                                            </div>
+                                            <div>
+                                                <p>5447</p>
+                                            </div>
+                                        </div>
+
+                                        <div className='cont-sale d-flex justify-content-between'>
+                                            <div>
+                                                <img src={f_flag2}/>
+                                                <p>France</p>
+                                            </div>
+                                            <div>
+                                                <MdTrendingUp className='sale-up'/>
+                                            </div>
+                                            <div>
+                                                <p>5415</p>
+                                            </div>
+                                        </div>
+
+                                        <div className='cont-sale d-flex justify-content-between'>
+                                            <div>
+                                                <img src={f_flag3}/>
+                                                <p>France</p>
+                                            </div>
+                                            <div>
+                                                <MdTrendingUp className='sale-up'/>
+                                            </div>
+                                            <div>
+                                                <p>7844</p>
+                                            </div>
+                                        </div>
+
+                                        <div className='cont-sale d-flex justify-content-between'>
+                                            <div>
+                                                <img src={f_flag4}/>
+                                                <p>France</p>
+                                            </div>
+                                            <div>
+                                                <IoMdTrendingDown className='sale-down'/>
+                                            </div>
+                                            <div>
+                                                <p>8854</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {/* second */}
+                            <div className='top-cust'>
+                                <div className='top-cont-title'>
+                                    <p>Top Customers</p>
+                                </div>
+                                <div style={{padding:'20px'}}>
+                                    <div>
+                                        <div className='top-cust-detail d-flex justify-content-between'>
+                                            <div className='d-flex'>
+                                                <div>
+                                                    <img src={t_cust_1} className='t-cust-1'/>
+                                                </div>
+                                                <div>
+                                                    <p>Emma Wilson</p>
+                                                    <span>15 Purchases</span>
+                                                </div>
+                                            </div>
+                                            <div className='d-flex align-items-center top-user-p'>
+                                                <p>$5,447</p>
+                                            </div>
+                                        </div>
+
+                                        <div className='top-cust-detail d-flex justify-content-between'>
+                                            <div className='d-flex'>
+                                                <div>
+                                                    <img src={t_cust_2} className='t-cust-1'/>
+                                                </div>
+                                                <div>
+                                                    <p>Emma Wilson</p>
+                                                    <span>15 Purchases</span>
+                                                </div>
+                                            </div>
+                                            <div className='d-flex align-items-center top-user-p'>
+                                                <p>$5,000</p>
+                                            </div>
+                                        </div>
+
+                                        <div className='top-cust-detail d-flex justify-content-between'>
+                                            <div className='d-flex'>
+                                                <div>
+                                                    <img src={t_cust_3} className='t-cust-1'/>
+                                                </div>
+                                                <div>
+                                                    <p>Emma Wilson</p>
+                                                    <span>15 Purchases</span>
+                                                </div>
+                                            </div>
+                                            <div className='d-flex align-items-center top-user-p'>
+                                                <p>$4,987</p>
+                                            </div>
+                                        </div>
+
+                                        <div className='top-cust-detail d-flex justify-content-between'>
+                                            <div className='d-flex'>
+                                                <div>
+                                                    <img src={t_cust_4} className='t-cust-1'/>
+                                                </div>
+                                                <div>
+                                                    <p>Emma Wilson</p>
+                                                    <span>15 Purchases</span>
+                                                </div>
+                                            </div>
+                                            <div className='d-flex align-items-center top-user-p'>
+                                                <p>$2,999</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                
+                <div className='my-footer'>
+                    <p>Copyright © 2024 HS. Designed with ❤️ by Hardik All rights reserved</p>
+                </div>
             </div>
+            
         </>
     )
 }

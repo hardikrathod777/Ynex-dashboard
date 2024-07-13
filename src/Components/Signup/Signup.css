@@ -4,6 +4,7 @@
     background-color: #ffffff;
     position: absolute;
     top: 0%;
+    z-index: 9999;
 }
 
 .signup-form{

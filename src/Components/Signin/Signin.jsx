@@ -7,7 +7,63 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { signInAsync } from '../../services/actions/authActions';
+import { signInWithGoogle } from '../../firebaseConfig';
+
 function Signin() {
+    const [inputBox,setinputBox] = useState({
+        email:'',
+        password:''
+    })
+
+    const {isLogin } = useSelector(state => state.authReducer);
+
+    const navigate =useNavigate();
+    const dispatch =useDispatch();
+
+    const handlechange =(e)=> {
+        let name = e.target.name;
+        let value = e.target.value;
+
+        setinputBox({ ...inputBox, [name]: value });
+    }
+
+    const handleSubmit = async (e) => {
+
+        e.preventDefault();
+        // dispatch(signInAsync(inputBox))
+        try {
+            await dispatch(signInAsync(inputBox));
+            history.push('/');
+        } catch (error) {
+            console.error('Sign in error:', error);
+        }
+
+    }
+
+    
+    const handleGoogleSignIn = async () => {
+        try {
+            const result = await signInWithGoogle();
+            // Handle user information here
+            console.log(result.user);
+            navigate('/');
+            } catch (error) {
+            console.error('Google Sign-In error:', error);
+            }
+        };
+
+    useEffect(() => {
+
+        if (isLogin) {
+            navigate('/')
+        }
+
+    }, [isLogin])
+
     return (
         <>
             <div className='col-xxl-12 d-flex signup-main'>
@@ -18,19 +74,20 @@ function Signin() {
                             <p className='logo-signup'>Sign Up</p>
                             <p className='welcome-s'>Hello Harry !</p>
                             <div>
-                                <button className='google-btn'>
+                                <button className='google-btn' onClick={handleGoogleSignIn}>
                                     <FcGoogle className='google-logo'/> <span>Sign In With Google</span>
                                 </button>
                             </div>
                             <div className='form-layout'>
-                                <Form noValidate>
+                                <Form noValidate onSubmit={handleSubmit}>
                                 <Row className="mb-3">
                                     <Form.Group as={Col} controlId="validationCustom01">
-                                    <Form.Label className='text-default'>First name</Form.Label>
+                                    <Form.Label className='text-default'>E-mail</Form.Label>
                                     <Form.Control
                                         required
-                                        type="text"
-                                        placeholder="First name"
+                                        type="email"
+                                        placeholder="E-mail"
+                                        onChange={handlechange} value={inputBox.email} name='email'
                                     />
                                     </Form.Group>
                                     
@@ -38,7 +95,9 @@ function Signin() {
                                 <Row className="">
                                     <Form.Group className="mb-3" controlId="formGroupPassword">
                                         <Form.Label className='text-default'>Password</Form.Label>
-                                        <Form.Control type="password" placeholder="Password" />
+                                        <Form.Control type="password" placeholder="Password" 
+                                        onChange={handlechange} value={inputBox.password} name='password'
+                                        />
                                     </Form.Group>
                                 </Row>
                                 <Form.Group as={Row} className="mb-3" controlId="formHorizontalCheck">

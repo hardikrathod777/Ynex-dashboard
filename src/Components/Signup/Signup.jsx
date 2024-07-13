@@ -3,23 +3,68 @@ import { FcGoogle } from "react-icons/fc";
 import clouser_1 from '../../assets/2-NX07u2tZ.png';
 import clouser_2 from '../../assets/3-D4NlMYxD.png';
 import form_logo from '../../assets/download (2).png'
-
-import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-function Signup() {
-    const [validated, setValidated] = useState(false);
-    const handleSubmit = (event) => {
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-        event.preventDefault();
-        event.stopPropagation();
-        }
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import {signUpAsync} from '../../services/actions/authActions';
+import { signInWithGoogle } from '../../firebaseConfig';
 
-        setValidated(true);
-    };
+function Signup() {
+
+    // const handleSubmit = (event) => {
+    //     const form = event.currentTarget;
+    //     if (form.checkValidity() === false) {
+    //     event.preventDefault();
+    //     event.stopPropagation();
+    //     }
+
+    //     setValidated(true);
+    // };
+    const {user,err} =useSelector(state => state.authReducer);
+    const [inputBox , setinputBox]=useState({
+        firstName:'',
+        // lastName:'',
+        email:'',
+        password:'',
+        conf_password:''
+    })
+
+    const navigate =useNavigate();
+    const dispatch =useDispatch();
+
+    const handlechange = (e) => {
+        let name = e.target.name;
+        let value = e.target.value;
+
+        setinputBox({ ...inputBox, [name]: value });
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        dispatch(signUpAsync(inputBox))
+    }
+
+    const handleGoogleSignIn = async () => {
+        try {
+            const result = await signInWithGoogle();
+            // Handle user information here
+            console.log(result.user);
+            navigate('/');
+            } catch (error) {
+            console.error('Google Sign-In error:', error);
+            }
+        };
+    useEffect(() => {
+        if(user){
+            navigate('/signin')
+        }
+    }),[user]
+
+    
     return (
         <>
             <div className='col-xxl-12 d-flex signup-main'>
@@ -30,12 +75,12 @@ function Signup() {
                             <p className='logo-signup'>Sign Up</p>
                             <p className='welcome-s'>Welcome & Join us by creating a free account !</p>
                             <div>
-                                <button className='google-btn'>
+                                <button className='google-btn' onClick={handleGoogleSignIn}>
                                     <FcGoogle className='google-logo'/> <span>Sign In With Google</span>
                                 </button>
                             </div>
                             <div className='form-layout'>
-                                <Form noValidate validated={validated} onSubmit={handleSubmit}>
+                                <Form noValidate onSubmit={handleSubmit}>
                                 <Row className="mb-3">
                                     <Form.Group as={Col} controlId="validationCustom01">
                                     <Form.Label className='text-default'>First name</Form.Label>
@@ -43,30 +88,49 @@ function Signup() {
                                         required
                                         type="text"
                                         placeholder="First name"
+                                        name='firstName'
+                                        value={inputBox.firstName}
+                                        onChange={handlechange}
                                     />
                                     </Form.Group>
                                     
                                 </Row>
-                                <Row className="mb-3">
+                                {/* <Row className="mb-3">
                                     <Form.Group as={Col} controlId="validationCustom02">
                                         <Form.Label className='text-default'>Last name</Form.Label>
                                         <Form.Control
                                             required
                                             type="text"
                                             placeholder="Last name"
+                                            name='lastName'
+                                            value={inputBox.lastName}
+                                            onChange={handlechange}
+                                        />
+                                    </Form.Group>
+                                </Row> */}
+                                <Row className="mb-3">
+                                    <Form.Group className="" controlId="formGroupPassword">
+                                        <Form.Label className='text-default'>E-mail</Form.Label>
+                                        <Form.Control type="email" placeholder="Email" 
+                                        value={inputBox.email} name='email' onChange={handlechange} 
+                                        required 
                                         />
                                     </Form.Group>
                                 </Row>
                                 <Row className="mb-3">
-                                    <Form.Group className="mb-3" controlId="formGroupPassword">
+                                    <Form.Group className="" controlId="formGroupPassword">
                                         <Form.Label className='text-default'>Password</Form.Label>
-                                        <Form.Control type="password" placeholder="Password" />
+                                        <Form.Control type="password" placeholder="Password" 
+                                        value={inputBox.password} name='password' onChange={handlechange}
+                                        />
                                     </Form.Group>
                                 </Row>
                                 <Row className="mb-3">
-                                    <Form.Group className="mb-3" controlId="formGroupPassword">
+                                    <Form.Group className="" controlId="formGroupPassword">
                                         <Form.Label className='text-default'>Confirm Password</Form.Label>
-                                        <Form.Control type="password" placeholder="Password" />
+                                        <Form.Control type="password" placeholder="Password" 
+                                        value={inputBox.conf_password} name='conf_password' onChange={handlechange}
+                                        />
                                     </Form.Group>
                                 </Row>
                                 
@@ -81,6 +145,7 @@ function Signup() {
                                 <Button type="submit" className='signup-btn'>Create Account</Button>
                                 </Form>
                             </div>
+                            <p className='text-danger'>{err ? err : ''}</p>
                             <div className='sign-in-page'>
                                 <p>Already have an account? <a href='/signin'>Sign In</a></p>
                             </div>

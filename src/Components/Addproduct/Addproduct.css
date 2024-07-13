@@ -1,0 +1,72 @@
+
+.add-product-main{
+    width: 1296px;
+    height: 716px;
+    margin-left: 240px;
+    padding: 0px 24px;
+    padding-top: 20px;
+    overflow-x: scroll;
+    margin-top:60px;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+
+.addpro-form-title{
+    padding-bottom: 20px;
+}
+
+.addpro-form-title h3{
+    font-size: 18px;
+    color: #333335;
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+
+.form-div-box{
+    width: 100%;
+    height: 630px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 24px;
+    position: relative;
+}
+
+.file-input{
+    width: 588px;
+    height: 139.2px;
+    border: 1px dashed #DEE2E6;
+    position: absolute;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.file-in-div{
+    position: relative;
+}
+
+.add_f_l{
+    font-size: 13.008px;
+    color: #333335;
+    font-weight: 600;
+}
+.option-s{
+    margin: 8px 12px !important;
+}
+.Add_pro_btn{
+    padding: 8px 12px;
+    color: #845adf !important;
+    background-color: #F2EEFC !important;
+    border: none !important;
+    font-size: 14px !important;
+    position: absolute;
+    top: 90%;
+    left: 88%;  
+}
+
+.Add_pro_btn:hover{
+    color: #fff !important;
+    background-color: #845adf !important;
+}

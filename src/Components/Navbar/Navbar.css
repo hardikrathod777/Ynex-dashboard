@@ -3,7 +3,6 @@
     height: 776px;
     position: absolute;
     top: 0%;
-    z-index: -999;
     background-image: 
     linear-gradient(
         rgba(17, 28, 67, .8), 
@@ -26,7 +25,7 @@
     border-radius: 10px;
 }
 .navbar-inner-div ul li:hover{
-    background-color: #ffffff0d;
+    background-color: #ffffff0d !important;
 }
 .navbar-inner-div ul {
     padding-left: 0%;

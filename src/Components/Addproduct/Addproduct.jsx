@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import {addproAsync} from '../../services/actions/proAction';
+import { uploadFileToStorage } from '../../services/actions/proAction';
 
 function Addproduct() {
     const { isSubmit, isLoading } = useSelector(state => state.productReducer);
@@ -21,7 +22,7 @@ function Addproduct() {
         discount:'',
         category:'',
         gender:'',
-        pro_type:'',
+        pro_type:'', 
         pro_wg:'',
         pro_size:'',
         pro_brand:'',
@@ -41,11 +42,20 @@ function Addproduct() {
         setinputText({...inputText, [name]:value});
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
+       let url =  await handleFileUpload();
+
+       
         let obj = {
-            ...inputText
+            ...inputText,
+            pro_img:url[0]
         }
+
+        
+
+        console.log("hellpp", obj);
         dispatch(addproAsync(obj))
         setinputText({
             pro_name:'',
@@ -66,30 +76,43 @@ function Addproduct() {
             pro_aval:'',
         })
 
-        const form = e.currentTarget;
-        if (form.checkValidity() === false) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
+        // const form = e.currentTarget;
+        // if (form.checkValidity() === false) {
+        //     e.preventDefault();
+        //     e.stopPropagation();
+        // }
     
         setValidated(true);
     };
 
+    
+    const [files, setFiles] = useState([]);
+    const { getRootProps, getInputProps } = useDropzone({
+        accept: 'image/*',
+        onDrop: (acceptedFiles) => setFiles(acceptedFiles),
+    });
+
+    const handleFileUpload = async () => {
+        try {
+            const uploadedUrls = await Promise.all(
+                files.map(async (file) => {
+                    const downloadUrl = await uploadFileToStorage(file); // Call Firebase storage upload function
+                    return downloadUrl;
+                })
+            );
+    
+           return uploadedUrls;
+    
+        } catch (error) {
+            console.error('Error uploading file:', error);
+            // Handle error (e.g., show error message)
+        }
+    };
     useEffect(()=>{
         if(isSubmit) {
             navigate('/Productlist');
         }
     },[isSubmit,navigate])
-
-    const [files, setFiles] = useState([]);
-
-    const { getRootProps, getInputProps } = useDropzone({
-        accept: 'image/*',
-        onDrop: (acceptedFiles) => {
-        setFiles(acceptedFiles);
-        }
-    });
-
 
     return (
         
@@ -193,7 +216,7 @@ function Addproduct() {
                         <Form.Group className="add_f_l file-in-div" as={Col} md="6">
                             <Form.Label >Product Images:</Form.Label>
                             <div className='file-input' {...getRootProps()}>
-                                <input {...getInputProps()} value={inputText.pro_img} name='pro_img' onChange={handleInput} required/>
+                                <input {...getInputProps()} required/>
                                 <p>Drag & drop your file here or click</p>
                                 {/* Display uploaded files */}
                                 {files.map((file) => (

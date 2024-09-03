@@ -1,7 +1,8 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth,GoogleAuthProvider,signInWithPopup } from 'firebase/auth';
+import { collection, addDoc } from "firebase/firestore";
 import { getFirestore } from 'firebase/firestore';
-import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+// import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
 const firebaseConfig = {
     apiKey: "AIzaSyBFlp_C0TP4oOdHICne3NPTAd3YVlXaGtg",
@@ -21,6 +22,7 @@ const signInWithGoogle = () => {
   return signInWithPopup(auth, provider);
 };
 
-const storage = getStorage(app);
+// const storage = getStorage(app);
 
-export { app, auth, db , signInWithGoogle ,storage};
+export { app, auth, db , signInWithGoogle,addDoc,collection };
+// storage

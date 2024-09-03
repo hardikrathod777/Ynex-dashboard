@@ -57,7 +57,7 @@ function Productlist() {
                             <td className=''>
                                 <div className='d-flex'>
                                     <div className='pro_img_1'>
-                                        <img src={pro_1_img} />
+                                        <img src={`${product.pro_img}`} />
                                     </div>
                                     <div className='pro_name'>
                                         <p>{product.pro_name}</p>

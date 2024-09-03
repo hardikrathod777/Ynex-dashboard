@@ -1,6 +1,10 @@
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../firebaseConfig";
 import { getDocs ,deleteDoc,doc,updateDoc,getDoc } from 'firebase/firestore';
+import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import { storage } from '../../firebaseConfig';
+
+
 export const addpro = (data) => {
 
     return {
@@ -134,9 +138,12 @@ export const addproAsync = (obj) => {
 
         dispatch(loading());
 
+        
+
         try {
             const docRef = await addDoc(collection(db, "products"), obj);
             console.log("Document written with ID: ", docRef.id, docRef);
+            dispatch({type:"ADD-S"})
         } catch (e) {
             console.error("Error adding document: ", e);
         }
@@ -188,4 +195,24 @@ export const getProductById = (id) => async (dispatch) => {
 } catch (error) {
     dispatch(getProductByIdFailure(error.message));
 }
+};
+
+export const uploadFileToStorage = async (file) => {
+    const storageRef = ref(storage, `pro_img/${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    try {
+        // Upload file
+        await uploadTask;
+
+        // Get download URL
+        const downloadURL = await getDownloadURL(storageRef);
+        console.log('File uploaded successfully. Download URL:', downloadURL);
+
+        return downloadURL;
+
+    } catch (error) {
+        console.error('Error uploading file to storage:', error);
+        throw error;
+    }
 };

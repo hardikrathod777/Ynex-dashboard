@@ -1,0 +1,47 @@
+header{
+    padding: 13.008px 0px;
+    background-color: #fff;
+}
+
+ul li{
+    display: flex;
+    margin-left: 35px;
+}
+ul{
+    display: flex;
+}
+ul li a:hover{
+    color: #845adf;
+}
+a{
+    text-decoration: none;
+    color: #333335;
+    font-size: 13.50px !important;
+    font-weight: 600;
+}
+
+.ul-padding{
+    padding-top: 16.245px;
+    width: 1000px;
+}
+
+.img-logo-e{
+    margin-left: 24px;
+}
+
+.s-btn{
+    padding: 8px 16px;
+    background-color: #f3f6f8;
+    border-radius: 6px;
+    margin-left: 12px;
+}
+
+.cart-h{
+    font-size:20px !important;
+    margin-left: 16px;
+}
+
+.cart-btn{
+    border: none;
+    background-color: transparent;
+}

@@ -10,6 +10,12 @@ const inialState = {
 const productReducer = (state = inialState, action) => {
 
     switch (action.type) {
+
+        case "ADD-S":
+            return{
+                ...state,
+                isSubmit:true
+            } 
         case "DONENAVIGATE":
             return{
                 ...state,

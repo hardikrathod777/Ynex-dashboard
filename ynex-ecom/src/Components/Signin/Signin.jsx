@@ -2,7 +2,7 @@ import './Signin.css'
 import { FcGoogle } from "react-icons/fc";
 import clouser_1 from '../../assets/2-NX07u2tZ.png';
 import clouser_2 from '../../assets/3-D4NlMYxD.png';
-import form_logo from '../../assets/download (2).png'
+import form_logo from '../../assets/download (3).png'
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -47,12 +47,14 @@ function Signin() {
     
     const handleGoogleSignIn = async () => {
         try {
-            await signInWithGoogle();
+            const result = await signInWithGoogle();
+            // Handle user information here
+            console.log(result.user);
             navigate('/');
-        } catch (error) {
+            } catch (error) {
             console.error('Google Sign-In error:', error);
-        }
-    };
+            }
+        };
 
     useEffect(() => {
 
